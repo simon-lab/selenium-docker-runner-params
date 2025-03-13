@@ -21,8 +21,8 @@ pipeline{
                 
                 //Untuk menggagalkan Jenkins job jika ada test yang gagal
 
-                script{
-                    if(fileExist('output/flight-reservation/testng-failed.xml') || fileExist('output/vendor-portal/testng-failed.xml') ){
+                script {
+                    if(fileExists('output/flight-reservation/testng-failed.xml') || fileExists('output/vendor-portal/testng-failed.xml')){
                         error('failed tests found')
                     }
                 }

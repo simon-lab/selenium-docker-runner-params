@@ -23,7 +23,7 @@ pipeline{
 
                 script{
                     if(fileExist('output/flight-reservation/testng-failed.xml') || fileExist('output/vendor-portal/testng-failed.xml') ){
-                        error('failed tests found')s
+                        error('failed tests found')
                     }
                 }
             }

@@ -23,7 +23,8 @@ pipeline{
 
                 bat 'docker login -u %DOCKER_HUB_USR% -p %DOCKER_HUB_PSW%'
 
-                bat "docker-compose -f test-suites.yaml up --pull=always"
+                // bat "docker-compose -f test-suites.yaml up --pull=always"
+                bat "docker-compose -f test-suites.yaml up"
                 
                 //Untuk menggagalkan Jenkins job jika ada test yang gagal
 

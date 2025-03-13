@@ -16,8 +16,15 @@ pipeline{
         }
 
         stage('Run Test'){
+            environment{
+                DOCKER_HUB = credentials('dockerhub-creds')
+            }
             steps{
-                bat "docker-compose -f test-suites.yaml up"
+
+                bat 'docker login -u %DOCKER_HUB_USR% -p %DOCKER_HUB_PSW%'
+                bat "docker push saimen0/selenium"
+
+                bat "docker-compose -f test-suites.yaml up --pull=always"
                 
                 //Untuk menggagalkan Jenkins job jika ada test yang gagal
 

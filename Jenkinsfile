@@ -22,7 +22,6 @@ pipeline{
             steps{
 
                 bat 'docker login -u %DOCKER_HUB_USR% -p %DOCKER_HUB_PSW%'
-                bat "docker push saimen0/selenium"
 
                 bat "docker-compose -f test-suites.yaml up --pull=always"
                 
